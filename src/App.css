@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+
+
+.marker{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    transition:
+        width .5s,
+        height .5s;
+    border-radius:10px;
+    cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.marker_name, .marker_info, .marker_infoExpanded{
+    border-radius:10px; 
+    padding: 10px;
+    background-color: inherit;
+     font-family:Paula, sans-serif;
+     font-size: x-large;
+     line-height: 1;
+     color: inherit;
+     top: 0;
+     left: 0;
+    position: absolute;
+     display: inline-block;
+   white-space: nowrap;
+     box-sizing: border-box;
+   }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+   .marker_name {
+    font-weight: bold;
+    z-index: 2000; /* Ensure it's above the info */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .marker_info {
+    transition: left 0.5s ease; /* Animate the width change */
+    z-index: 1000; /* Below the name tag */
   }
-  to {
-    transform: rotate(360deg);
+  .marker_infoExpanded{
+    width: inherit;
+    text-wrap: wrap;
+    text-align: justify;
   }
-}
+
+  .leaflet-marker-icon {
+    background-color: transparent !important;
+    border: none !important;
+  }
