@@ -3,6 +3,7 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 import { SimulationContext } from '../simulationContext/SimulationContext'
 import IntroMarker from './intro/introMarkerComponent'
 import MainMenu from './maingame/MenuComponent';
+import IntroStaticMarker from './intro/introStaticMarkerComponent';
 
 const LeafletMap = () => {
     const simContext = useContext(SimulationContext);
@@ -28,9 +29,16 @@ const LeafletMap = () => {
 
         if (!simContext.gameState.isActive) {
             if (!simContext.campaignState.isLoading) {
-                return simContext.campaignState.campaigns.map((campaign) => (
-                    <IntroMarker key={campaign.name} campaign={campaign} />
-                ));
+                return (
+                    <>
+                    {simContext.campaignState.campaigns.map((campaign) => (
+                        campaign.name === "Zenmo Zero" ? 
+                            <IntroStaticMarker key={campaign.name} campaign={campaign} /> :
+                            <IntroMarker key={campaign.name} campaign={campaign} />
+                    ))}
+                </>
+                
+                );
             } 
         }  else  {
             if (!simContext.gameState.isLoading) {

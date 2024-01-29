@@ -30,6 +30,23 @@ export const mockCampaigns = [
            secondary:"#418745"
          }
        },
+       
+    {
+      coordinates: [52.3259, 5.43100],
+      name: "Zenmo Zero",budget:5414100,
+      exinfoHTML: "Zenmo Zero is an energy transition simulation game based on cutting edge digital twin simulation technologies. Learn how different energy transition technologies work",
+      infoHTML: "What is it?",
+      kpis: [],
+      availableMenus: ["Grid", "Solar", "Bioenergy", "Energy Efficiency","Batteries","Hydroelectric"],
+      generalKPIs: {
+        "AVG Grid Capacity": "AVG grid capacity",
+        "Solar Generation": "Generation"
+      },
+      colors:{
+        primary:"#78cc7e",
+        secondary:"#418745"
+      }
+    },
        {
          coordinates: [52.357576, 6.214733],
          name: "Broekland",budget:400000,

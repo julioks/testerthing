@@ -20,7 +20,7 @@ const MainMenu = () => {
         <div className='maingame-mainMenu'>
             <div className='mainMenu-leftDetails'>
             <div >{simContext.gameState.campaign.name}</div>
-            <div >{simContext.gameState.campaign.budget}</div></div>
+            <div >{simContext.gameState.campaign.budget}€</div></div>
             <div className='mainMenu-centerDetails'>
             {Object.entries(simContext.gameState.campaign.availableMenus).map(([name, data]) => (
                 <CategoryMenu
@@ -35,8 +35,9 @@ const MainMenu = () => {
             ))}
             </div>
             <div className='mainMenu-rightDetails' >
+                <div>{simContext.gameState.campaign.year}</div>
                 <div onClick={simContext.simulateYear}>Next Year</div>
-                <div>{simContext.gameState.campaign.year}</div></div>
+            </div>
         </div>
     );
 };

@@ -1,13 +1,26 @@
 /*custom leaflet marker that is used as the campaign selector, must get a single campaign as defined in the mock data*/
 
 import React, { useContext, useEffect, useState } from 'react';
-import { Marker } from 'react-leaflet';
+import { Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import { SimulationContext } from '../../simulationContext/SimulationContext';
 /*should i split this component or is it okay?*/
 const IntroMarker = ({campaign}) => {
     const [icon, setIcon] = useState(null);
     const simContext=useContext(SimulationContext);
+    const map = useMapEvents({
+        moveend: () => updateMarkerPosition(),
+        zoomend: () => updateMarkerPosition()
+    });
+
+    const updateMarkerPosition = () => {
+
+        if (campaign.name === "Zenmo Zero") {
+            const cornerLatLng = map.containerPointToLatLng([map.getSize().x, 0]);
+            // Update your marker's position here
+            console.log(campaign)
+        }
+    };
     useEffect(() => {
        
        const createAndMeasureMarker=()=> {
@@ -60,10 +73,13 @@ const IntroMarker = ({campaign}) => {
 
 
         const div = L.DomUtil.create('div', 'marker');
+        div.id = `marker-${campaign.name.replace(/[^a-zA-Z0-9]/g, '_')}`; // Replace non-alphanumeric characters with underscores
         div.innerHTML = temp_div.innerHTML
         /*styling things*/
-        div.style.color=campaign.colors.secondary;
-        div.style.backgroundColor=campaign.colors.primary;
+        div.style.color=campaign.colors.primary;
+        div.style.backgroundColor=campaign.colors.secondary;
+        div.querySelector('.marker_name').style.background = campaign.colors.primary
+        div.querySelector('.marker_name').style.color = campaign.colors.secondary
         div.style.width = `${name_width}px`; // Set initial width
         div.style.height = `${name_height}px`; // Set initial width
 
@@ -71,13 +87,11 @@ const IntroMarker = ({campaign}) => {
         div.addEventListener('mouseenter', () => {
             div.style.width = `${name_width + info_width}px`;
             div.querySelector('.marker_info').style.left = name_width + 'px';
-            div.querySelector('.marker_info').style.background = campaign.colors.primary
+            div.querySelector('.marker_info').style.background = campaign.colors.secondary
+            div.querySelector('.marker_info').style.color = campaign.colors.primary
         });
         
         div.addEventListener('mouseleave', () => {
-            div.querySelector('.marker_info').style.background = "transparent"
-            div.querySelector('.marker_infoExpanded').style.background = "transparent"
-            
             console.log("blet");
             div.style.width = `${name_width}px`;
             div.querySelector('.marker_info').style.left = '0px';
@@ -88,10 +102,12 @@ const IntroMarker = ({campaign}) => {
             console.log(div.querySelector('.marker_infoExpanded').style, campaign.colors.primary)
             div.querySelector('.marker_infoExpanded').style.left=0
             div.style.height = `${name_height+infoExpanded_height}px`;
-            div.querySelector('.marker_infoExpanded').style.background = campaign.colors.primary
+            div.querySelector('.marker_infoExpanded').style.background = campaign.colors.secondary
+            div.querySelector('.marker_infoExpanded').style.color = campaign.colors.primary
+
             div.querySelector('.marker_infoExpanded').style.top = `${name_height}px`;
-            div.querySelector('.marker_startCampaign').style.background = campaign.colors.secondary
-            div.querySelector('.marker_startCampaign').style.color = campaign.colors.primary
+            div.querySelector('.marker_startCampaign').style.background = campaign.colors.primary
+            div.querySelector('.marker_startCampaign').style.color = campaign.colors.secondary
 
         });
         //event listener for starting the campaign
@@ -124,6 +140,8 @@ const IntroMarker = ({campaign}) => {
 
     if (!icon) return null;
 
-    return <Marker position={campaign.coordinates} icon={icon} />;
+    
+
+    return <Marker id={campaign.name} position={campaign.coordinates} icon={icon} />;
 }
 export default IntroMarker;
