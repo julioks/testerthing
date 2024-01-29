@@ -1,0 +1,45 @@
+// tooltipDictionary.js
+export const tooltipDictionary = {
+
+    
+    "end consumer": "End consumers are the final users of electricity, usually households or businesses.",
+    "production costs": "Production costs refer to the expenses incurred in generating electricity, including raw materials, labor, and technology.",
+    "transmission losses": "Transmission losses are the energy losses that occur when electricity is transmitted from power plants to end consumers.",
+    "administrative overheads": "Administrative overheads are the expenses related to the administration and general management of a utility company.",
+    "Megawatts (MW)": "A Megawatt (MW) is a unit of power equal to one million watts, used to measure the capacity of power plants and grids.",
+    "infrastructure investments": "Infrastructure investments refer to the capital put into building and upgrading electrical grids and power plants.",
+    "renewable energy sources": "Renewable energy sources include solar, wind, hydro, and other forms of energy that are sustainable and environmentally friendly.",
+    "technology upgrades": "Technology upgrades are improvements in equipment and systems used in the generation and distribution of electricity.",
+    "natural events": "Natural events, like storms and earthquakes, can significantly impact power grids and infrastructure.",
+    "aging infrastructure": "Aging infrastructure refers to older electrical systems and components that may be less efficient and more prone to failure.",
+    "operational errors": "Operational errors are mistakes or mismanagement in the operation of power generation or distribution systems.",
+    "maintenance improvements": "Maintenance improvements are enhancements in the care and servicing of electrical infrastructure to ensure reliability and efficiency.",
+    "robust infrastructure investment": "Robust infrastructure investment involves significant spending on the development and strengthening of electrical grids and facilities.",
+       "maximum power transmission capability": "Maximum power transmission capability is the highest amount of electrical energy that can be reliably transmitted through the power grid without risking system stability.",
+        "grid system breakdowns": "Grid system breakdowns are failures in the electrical grid, leading to a disruption in power supply. These can be caused by natural events, aging infrastructure, or operational errors.",
+        "policy": "In the context of renewable energy, policy refers to the government rules, regulations, and guidelines that influence the development, usage, and promotion of sustainable energy sources.",
+        "public interest in renewables": "Public interest in renewables reflects the general demand and support from the public for renewable energy sources, driven by environmental concerns and sustainability.",
+        "panel efficiency": "Panel efficiency in solar technology refers to the percentage of sunlight that solar panels can convert into usable electricity.",
+        "sunlight availability": "Sunlight availability indicates the amount and intensity of sunlight in a particular area, which affects the potential for solar energy generation.",
+        "wind energy infrastructure scale": "Wind energy infrastructure scale refers to the extent and capacity of facilities and equipment used for generating electricity from wind energy.",
+        "energy balance in renewable systems": "Energy balance in renewable systems is the ratio of energy output to the energy input needed to maintain and operate renewable energy sources.",
+        "energy retention during storage": "Energy retention during storage refers to the ability of energy storage systems to hold onto generated power with minimal losses over time.",
+        "durability and sustainability enhancements": "Durability and sustainability enhancements are improvements made to renewable energy systems to extend their lifespan and minimize environmental impact.",
+        "raw material demand reduction": "Raw material demand reduction involves decreasing the need for scarce or non-renewable materials in the production of renewable energy technologies.",
+        "water flow and turbine efficiency": "Water flow and turbine efficiency relates to the effectiveness of hydroelectric systems in converting the kinetic energy of flowing water into electricity.",
+        "aquatic and environmental effects": "Aquatic and environmental effects refer to the impact of renewable energy projects, like hydroelectric dams, on local ecosystems and water bodies.",
+        "geological conditions": "Geological conditions involve the physical attributes of a location that affect the feasibility and efficiency of renewable energy projects, particularly geothermal energy.",
+        "operational disruptions": "Operational disruptions are unexpected events or failures that interrupt the normal functioning of renewable energy systems.",
+        "greenhouse gas emissions": "Greenhouse gas emissions are gases like carbon dioxide and methane released into the atmosphere, contributing to climate change. Renewable energies aim to reduce these emissions.",
+        "agricultural waste, wood, and organic waste": "These materials are potential sources of biomass energy, where energy is produced through the combustion or processing of organic matter.",
+        "carbon emissions, land use, and ecological impact": "This refers to the environmental consequences of energy production, including the release of carbon dioxide, effects on land ecosystems, and overall ecological footprint.",
+        "smart technology": "Smart technology in renewable energy involves advanced systems and devices that enhance the efficiency, control, and integration of renewable resources into the power grid.",
+        "demand response": "Demand response is a strategy to adjust the demand for power, rather than the supply, often by incentivizing consumers to reduce usage during peak times.",
+        "individual carbon footprints": "An individual carbon footprint is the total amount of greenhouse gases produced directly and indirectly by a person, household, or organization.",
+        "subsidies, tax rebates, and grants": "These are financial incentives offered by governments to support and encourage the development and adoption of renewable energy sources.",
+        "taxing carbon emissions": "Taxing carbon emissions is a policy approach where a tax is imposed on the carbon content of fossil fuels, aimed at reducing greenhouse gas emissions.",
+        "fossil fuels": "Fossil fuels are non-renewable energy sources, such as coal, oil, and natural gas, formed from the remains of ancient plants and animals.",
+        "sustainable energy initiatives": "Sustainable energy initiatives are projects and policies aimed at promoting the use and development of renewable energy sources for a sustainable future."
+    
+    
+};

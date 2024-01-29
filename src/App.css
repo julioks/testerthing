@@ -1,5 +1,25 @@
+:root{
+  --primary_col: brown;
+  --secondary_col: green;
+  font-family: 'Paula', sans-serif;
+}
+input,select{
+  cursor: text;
+  all: unset;
+  width: 100%;
+  text-align: center;
+  font-family: 'Paula', sans-serif;
+  color: var(--text-color);
+  font-weight: 600;
+}
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+-moz-appearance: textfield;
 
+}
 .marker{
     margin: 0;
     padding: 0;
@@ -47,3 +67,159 @@
     background-color: transparent !important;
     border: none !important;
   }
+  .shadowText{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /*maingame stuff*/
+  .maingame-mainMenu{
+    transition: color 0.3s ease, background-color 0.5s ease;
+    font-family: 'Paula', sans-serif;
+    background-color: var(--primary_col);
+    color: var(--secondary_col);
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 1000;
+    height: 4vh;
+    width: 100vw;
+    bottom: 0;
+    font-size: large;
+    font-weight: bold;
+  }
+  .maingame-menuCategory,.mainMenu-leftDetails,.mainMenu-rightDetails,.mainMenu-centerDetails{
+    width: auto;
+    margin-inline: 1vw;
+    display: flex;
+    align-items: center;
+  }
+  @keyframes slide-down-catPan {
+    from {
+      top: -25vh;
+      opacity: 1;
+    }
+    to {
+      top: 10vh;
+      opacity: 0;
+      display: none;
+    }
+  }
+  @keyframes slide-up-catPan {
+    from {
+      top: 10vh;
+        opacity: 0;
+    }
+    to {
+      top: -25vh;
+        opacity: 1;
+    }
+}
+  .menuCategory-categoryPanels.closed{
+   
+      animation: slide-down-catPan 0.5s ease-out forwards;
+   
+  }
+  .menuCategory-categoryPanels{
+    display:grid;
+    grid-auto-flow:column dense; /* column flow with "dense" to fill all the cells */
+    grid-template-rows:12.5vh 12.5vh; 
+    grid-auto-columns:15vw;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+    background-color: inherit;
+    animation: slide-up-catPan 0.5s ease-out forwards;
+  }
+  .maingame-categoryPanel{transition: color 0.3s ease, background-color 0.5s ease;
+    border-radius:10px;
+    display: grid;
+    grid-template-rows:50% 50%; 
+    background-color: var(--primary_col);
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-items: center;
+  }
+  .categoryPanel-name{
+    color: var(--secondary_col);
+    text-align: center;
+    font-size: 2vh;
+  }
+  .categoryPanel-value{
+    font-size: xx-large;
+    background-color: var(--secondary_col);
+    color: var(--primary_col);
+    width: auto;
+      padding-inline: 1vw;
+      border-radius:10px;
+    text-align: center;
+    margin-bottom: .5vh; font-weight: bold;
+  }@keyframes slide-up-exdet {
+    from {
+      bottom: 0vh;
+        opacity: 0;
+    }
+    to {
+      bottom: 25vh;
+        opacity: 1;
+    }
+}
+  .categoryPanel-expandableDetails{
+    background-color: var(--primary_col);
+    padding-inline: 1.5vw;
+    position: absolute;
+    bottom: 25vh;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+    width: 27vw;
+    line-height: normal;
+    animation: slide-up-exdet 0.5s ease-out forwards;
+  }
+  
+  .expandableDetails-description{
+    font-size: medium;
+    font-weight: normal;
+    text-align: justify;
+    color: var(--secondary_col);
+  }
+  .graph-outer-container{
+    color: var(--primary_col);
+    background-color: var(--secondary_col);
+    border-radius:10px;
+    margin-block-end:5%
+    }
+ 
+    .mainMenu-leftDetails{
+      margin-right: auto;/*this still works cause css appplies the most recent class, thats the cascading part of css*/
+      }
+    .mainMenu-rightDetails{
+      margin-left: auto;
+    }
+    
+    @keyframes slide-up-tt {
+      from {
+        bottom: 0vh;
+          opacity: 0;
+      }
+      to {
+        bottom: 100%;
+          opacity: 1;
+      }
+  }
+    .tooltipContent {
+      font-size: medium;
+      position: absolute;
+      background-color: var(--secondary_col);
+      color: var(--primary_col);
+      padding-inline: 1.5vw;
+      padding-block: 1vh;
+      animation: slide-up-tt 0.5s ease-out forwards;
+      left: 50%;
+       /* Align bottom of tooltip with top of parent */
+      transform: translateX(-50%); /* Center tooltip horizontally */
+      width: 27vw;
+    }

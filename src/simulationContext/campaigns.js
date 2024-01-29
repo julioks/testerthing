@@ -4,7 +4,7 @@ import mockAPI from '../mockSimApi/mockAPI.js';
 const useCampaigns = () => {
     const [campaignState, setCampaignState] = useState({
         campaigns: [],
-        isLoading: false,
+        isLoading: true,
         error: null,
     });
 

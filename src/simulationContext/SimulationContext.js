@@ -1,7 +1,7 @@
 // SimulationProvider.js
 import React, { createContext, useState } from 'react';
 import useCampaigns from './campaigns';
-import useTechnologies from './technologies';
+import useGameState from './gameState';
 
 
 const SimulationContext = createContext();
@@ -9,15 +9,16 @@ const SimulationContext = createContext();
 const SimulationProvider = ({ children }) => {
     const [menuItems, setMenuItems] = useState(["xses", "xdddd"]);
     const { campaignState, fetchCampaigns } = useCampaigns();
-    const { techState, fetchTechnologies } = useTechnologies();
+    const { gameState, fetchTechnologies,setColors, setValueByTechnology,setCampaign,simulateYear } = useGameState();
 
     const contextValue = {
         menuItems,
         setMenuItems,
         campaignState,
         fetchCampaigns,
-        techState,
-        fetchTechnologies
+        gameState,
+        fetchTechnologies,
+        setColors,setValueByTechnology,setCampaign,simulateYear
     };
 
     return (

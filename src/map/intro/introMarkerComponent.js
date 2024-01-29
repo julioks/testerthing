@@ -1,11 +1,13 @@
 /*custom leaflet marker that is used as the campaign selector, must get a single campaign as defined in the mock data*/
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Marker } from 'react-leaflet';
 import L from 'leaflet';
-
+import { SimulationContext } from '../../simulationContext/SimulationContext';
+/*should i split this component or is it okay?*/
 const IntroMarker = ({campaign}) => {
     const [icon, setIcon] = useState(null);
+    const simContext=useContext(SimulationContext);
     useEffect(() => {
        
        const createAndMeasureMarker=()=> {
@@ -39,9 +41,8 @@ const IntroMarker = ({campaign}) => {
         temp_div.classList.add("marker")
         temp_div.innerHTML= `<div class="marker_name">${campaign.name}</div>
         <div class="marker_info">${campaign.infoHTML}</div>
-        ${expandedInfoDiv.innerHTML}
-       `;
-
+        ${expandedInfoDiv.innerHTML}`;
+   
 
         document.querySelector('.leaflet-marker-pane').append(temp_div)
         document.querySelector('.leaflet-marker-pane').append(expandedInfoDiv)
@@ -66,7 +67,7 @@ const IntroMarker = ({campaign}) => {
         div.style.width = `${name_width}px`; // Set initial width
         div.style.height = `${name_height}px`; // Set initial width
 
-
+        //event listeners for stlying
         div.addEventListener('mouseenter', () => {
             div.style.width = `${name_width + info_width}px`;
             div.querySelector('.marker_info').style.left = name_width + 'px';
@@ -93,6 +94,19 @@ const IntroMarker = ({campaign}) => {
             div.querySelector('.marker_startCampaign').style.color = campaign.colors.primary
 
         });
+        //event listener for starting the campaign
+        const startCampaignButton = div.querySelector('.marker_startCampaign');
+        if (startCampaignButton) {
+            startCampaignButton.addEventListener('click', function() {
+                /*is there anything wrong with using a context like this in this particular space??
+                i think you can get away without contexts tho....*/
+                console.log(campaign.colors)
+                simContext.setCampaign(campaign)
+                /*this is a bit sketchy, the call of everything holds onto the console log and the app relying on the usestate in the map*/
+                console.log("Start campaign clicked",campaign.availableMenus,simContext.fetchTechnologies(campaign.availableMenus));
+                
+            });
+        }
 
         const customIcon = L.divIcon({
             html: div
