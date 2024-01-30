@@ -42,7 +42,6 @@ const IntroStaticMarker = ({ campaign }) => {
             markerRef.current.style.width = `${dimensions.nameWidth}px`;
             infoElem.style.left = '0px';
             markerRef.current.style.height=`${dimensions.nameHeight}px`
-            console.log(markerRef.current.style.height)
         }
 
         if (isClicked) {

@@ -22,7 +22,6 @@ const TooltipInfo = ({ term, explanation, onClick, isActive }) => {
 
     const handleClick = (event) => {
         event.stopPropagation();
-        console.log(`Clicked on term: ${term}`);
         onClick(event);  // Pass the event to the handler in parent
     };
 

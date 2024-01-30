@@ -4,35 +4,22 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import { SimulationContext } from '../../simulationContext/SimulationContext';
-/*should i split this component or is it okay?*/
+
 const IntroMarker = ({campaign}) => {
     const [icon, setIcon] = useState(null);
     const simContext=useContext(SimulationContext);
-    const map = useMapEvents({
-        moveend: () => updateMarkerPosition(),
-        zoomend: () => updateMarkerPosition()
-    });
 
-    const updateMarkerPosition = () => {
 
-        if (campaign.name === "Zenmo Zero") {
-            const cornerLatLng = map.containerPointToLatLng([map.getSize().x, 0]);
-            // Update your marker's position here
-            console.log(campaign)
-        }
-    };
+
     useEffect(() => {
        
        const createAndMeasureMarker=()=> {
         
          /*
-         
-
          because we cant calculate the size unless an element is inserted into the dom, we cant just
         div.querySelector('.marker_name').clientWidth and we have to make a temp_div via document.createElement
         and then get our heights/widths for animations
         */
-        console.log(campaign)
         const expandedInfoDiv=document.createElement("div");
         expandedInfoDiv.innerHTML=` <div class="marker_infoExpanded">
         <div class="marker_extraDescription">
@@ -68,9 +55,7 @@ const IntroMarker = ({campaign}) => {
         
         document.querySelector('.leaflet-marker-pane').removeChild(temp_div)
         document.querySelector('.leaflet-marker-pane').removeChild(expandedInfoDiv)
-        console.log(temp_div,name_width+info_width,infoExpanded_height)
-
-
+     
 
         const div = L.DomUtil.create('div', 'marker');
         div.id = `marker-${campaign.name.replace(/[^a-zA-Z0-9]/g, '_')}`; // Replace non-alphanumeric characters with underscores
@@ -92,14 +77,14 @@ const IntroMarker = ({campaign}) => {
         });
         
         div.addEventListener('mouseleave', () => {
-            console.log("blet");
+            
             div.style.width = `${name_width}px`;
             div.querySelector('.marker_info').style.left = '0px';
             div.style.height = `${name_height}px`;
         });
         div.addEventListener('click', () => {
            
-            console.log(div.querySelector('.marker_infoExpanded').style, campaign.colors.primary)
+           
             div.querySelector('.marker_infoExpanded').style.left=0
             div.style.height = `${name_height+infoExpanded_height}px`;
             div.querySelector('.marker_infoExpanded').style.background = campaign.colors.secondary
@@ -116,7 +101,7 @@ const IntroMarker = ({campaign}) => {
             startCampaignButton.addEventListener('click', function() {
                 /*is there anything wrong with using a context like this in this particular space??
                 i think you can get away without contexts tho....*/
-                console.log(campaign.colors)
+            
                 simContext.setCampaign(campaign)
                 /*this is a bit sketchy, the call of everything holds onto the console log and the app relying on the usestate in the map*/
                 console.log("Start campaign clicked",campaign.availableMenus,simContext.fetchTechnologies(campaign.availableMenus));

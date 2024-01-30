@@ -51,7 +51,6 @@ const mockAPI = {
   getTechnologies: (technologyNames) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log(technologyNames);
         const filteredTechnologies = Object.entries(mockTechnologies)
           .filter(([key]) => technologyNames.includes(key))
           .reduce((obj, [key, value]) => {
@@ -59,7 +58,6 @@ const mockAPI = {
             return obj;
           }, {});
         resolve(filteredTechnologies);
-        console.log(filteredTechnologies);
       }, 2000); // 2 seconds delay
     });
   },

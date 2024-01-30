@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import mockAPI from '../mockSimApi/mockAPI.js';
 
 const useGameState = () => {
@@ -11,15 +11,17 @@ const useGameState = () => {
         isLoading: true,//if the new simulation data is being updated
         error: null,
         colors:[]
-    });useEffect(() => {
-        console.log("Updated gameState:", gameState);
-      }, [gameState]);
+    });
+    
+  
+
     const setColors = (colors) => {
         setGameState(prevState => ({
             ...prevState,
-            colors: colors // This ensures you're not directly mutating the `colors` array.
+            colors: colors // This ensures we're not directly mutating the `colors` array.
         }));
     };
+    
     const setCampaign = async (campaign) => {
         console.log("Received campaign for setCampaign:", campaign);
     
