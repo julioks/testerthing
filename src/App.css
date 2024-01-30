@@ -1,8 +1,8 @@
 :root{
-  --primary_col: brown;
-  --secondary_col: green;
+  --primary_col:  #78cc7e;
+  --secondary_col:#418745;
   font-family: 'Paula', sans-serif;
-
+  overflow: hidden;
 }
 input,select{
   cursor: text;
@@ -314,3 +314,67 @@ padding: 5%;}
   .leaflet-top {
       top: 0;
   }
+  .loading-screen {
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--primary_col);
+    color: var(--secondary_col);
+    font-size: xx-large;
+    font-weight: bolder;
+    position: absolute;
+    z-index: 100000;
+    font-family: Paula;
+
+    /* Slide up when rendered */
+    animation: slideUp 0.5s ease forwards;
+}
+
+/* Keyframes for sliding up */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.loading-screen.unmount {
+  animation: slideDown 0.5s ease forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+.falling-leaf {
+    animation: fallAndSpin 3s infinite;
+    width: 250px; /* Adjust size as needed */
+}
+
+@keyframes fallAndSpin {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform:  rotate(180deg); }
+    100% { transform:  rotate(-360deg); }
+}
+.leaf-inside {
+  stroke: var(--secondary_col) !important;
+  color: var(--primary_col) !important;
+  fill: var(--secondary_col) !important; /* Assuming this is for the stroke color */
+}
+
+.leaf-main {
+  fill: var(--primary_col); /* Main color of the leaf */
+}
+
+.leaf-highlight {
+  fill: var(--secondary_col); /* Secondary color for highlights */
+}
+
+.leaf-outline {
+  stroke: var(--secondary_col); /* Outline color */
+  fill: none;
+  stroke-width: .26458;
+}

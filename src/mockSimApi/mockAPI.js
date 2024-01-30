@@ -45,7 +45,7 @@ const mockAPI = {
       setTimeout(() => {
         const mockCampaignData = mockCampaigns;
         resolve(mockCampaignData);
-      }, 20); // 2 seconds delay
+      }, 2000); // 2 seconds delay
     });
   },
   getTechnologies: (technologyNames) => {
@@ -60,7 +60,7 @@ const mockAPI = {
           }, {});
         resolve(filteredTechnologies);
         console.log(filteredTechnologies);
-      }, 20); // 2 seconds delay
+      }, 2000); // 2 seconds delay
     });
   },
   simulateNextYear: (campaign) => {
@@ -69,7 +69,7 @@ const mockAPI = {
         // Apply the year progression simulation to the provided campaign object
         const updatedCampaign = simulateNextYear(campaign);
         resolve(updatedCampaign);
-      }, 20); // 2 seconds delay
+      }, 2000); // 2 seconds delay
     });
   }
 };

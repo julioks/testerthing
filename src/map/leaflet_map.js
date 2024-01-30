@@ -4,6 +4,7 @@ import { SimulationContext } from '../simulationContext/SimulationContext'
 import IntroMarker from './intro/introMarkerComponent'
 import MainMenu from './maingame/MenuComponent';
 import IntroStaticMarker from './intro/introStaticMarkerComponent';
+import LoadingScreen from './loadingComponent';
 
 const LeafletMap = () => {
     const simContext = useContext(SimulationContext);
@@ -54,7 +55,8 @@ const LeafletMap = () => {
                       
             }
             else{
-                return<div style={{position:'absolute',zIndex:"1000"}}>loadingmenus</div>;
+                console.log(simContext.gameState)
+                return <LoadingScreen text={"Year "+(simContext.gameState.campaign.year+1)}/>;
             }
            
         }
@@ -62,7 +64,7 @@ const LeafletMap = () => {
     };
     if (simContext.campaignState.isLoading) {
         // Still loading data
-        return <div>Loading Campaigns...</div>;
+        return <LoadingScreen text={"Zenmo Zero"}/>;
     } else if (simContext.campaignState.error) {
         // Error occurred during fetch
         return <div>Error: {simContext.error}</div>;

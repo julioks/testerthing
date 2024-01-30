@@ -5,7 +5,7 @@ const useGameState = () => {
     
     const [gameState, setGameState] = useState({
         //inputs and outputs of simulation data that are available for a gameplay
-        campaign:{"year":2024},
+        campaign:{"year":2023},
         availableMenus: [],
         isActive:false,//used to set the transfer from intro to the gameloop
         isLoading: true,//if the new simulation data is being updated
@@ -35,7 +35,8 @@ const useGameState = () => {
                 campaign: {
                     ...prevState.campaign, // Preserve all existing campaign properties
                     ...campaign, // Apply updates from the new campaign object
-                    availableMenus: fetchedTechnologies // Override availableMenus with the new data
+                    availableMenus: fetchedTechnologies, // Override availableMenus with the new data
+                    "year":2024
                 },
                 availableMenus: fetchedTechnologies,
                 isActive: true, 

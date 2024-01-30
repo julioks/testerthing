@@ -1,0 +1,9 @@
+<svg width="40.607mm" height="28.439mm" version="1.1" viewBox="0 0 40.607 28.439" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(-106.5 -63.107)">
+  <g transform="scale(.26458)" class="leaf-inside" style="stroke:#0c5200">
+   <path d="m537.7 239.04a0.50005 0.50005 0 0 0-0.33008 0.43555c-2.8523 39.646-37.819 74.168-88.607 87.248a0.50005 0.50005 0 0 0-0.22461 0.8418c11.756 11.482 27.534 17.917 43.967 17.932 34.788 0 63-28.212 63-63-2e-3 -16.121-6.1837-31.629-17.273-43.33a0.50005 0.50005 0 0 0-0.53125-0.12695zm0.52539 1.6504c10.439 11.416 16.278 26.31 16.279 41.807 0 34.248-27.752 62-62 62-15.877-0.0138-31.109-6.1456-42.607-17.061 50.119-13.205 84.871-47.283 88.328-86.746z" style="-inkscape-stroke:none;color:#000000;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke:#0c5200"/>
+   <path d="m537.86 239.51a132.73 98.386 0 0 1-88.98 87.697 62.5 62.5 0 0 0 43.617 17.789 62.5 62.5 0 0 0 62.5-62.5 62.5 62.5 0 0 0-17.137-42.986z" style="-inkscape-stroke:none;color:#000000;fill:#587702;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke:#0c5200"/>
+  </g>
+  <path d="m142.31 63.371c7.1438 25.135-29.333 31.879-35.683 12.564" class="leaf-outside" style="fill:none;stroke-width:.26458;stroke:"/>
+ </g>
+</svg>
